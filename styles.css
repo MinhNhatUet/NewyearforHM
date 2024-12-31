@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+#countdown h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+}
+
+#timer {
+    font-size: 2em;
+    text-shadow: 0 0 10px #fff, 0 0 20px #00ff00, 0 0 30px #00ff00;
+}

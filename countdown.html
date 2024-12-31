@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Countdown to New Year</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <meta name="description" content="Countdown to New Year with Fireworks" />
+    <meta name="keywords" content="countdown, fireworks, new year" />
+    <meta name="author" content="YourName" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="countdown">
+        <h1>Countdown to New Year 2025</h1>
+        <p id="timer">Loading...</p>
+    </div>
+
+    <script>
+        const countdownElement = document.getElementById('timer');
+        const targetDate = new Date('2025-01-01T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "Happy New Year!";
+
+                // Load main.html after countdown ends
+                setTimeout(() => {
+                    window.location.href = 'main.html';
+                }, 2000); // Wait 2 seconds before redirecting
+
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `Còn ${days} ngày  ${hours} giờ ${minutes} phút ${seconds} giây`;
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
